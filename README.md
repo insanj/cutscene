@@ -1,7 +1,7 @@
 
 # cutscene
 
-lightweight text handling for the browser, powers cutscenes with dialogue for https://oogycanyouhelp.com
+🎥 lightweight text handling for the browser, powers cutscenes with dialogue for [https://oogycanyouhelp.com](https://oogycanyouhelp.com)
 
 ## Install
 
@@ -9,7 +9,7 @@ Built with Typescript, compiled for use in any modern browser through the `oogy_
 
 Once in 1.0.0, will be found at:
 
-```
+```bash
 npm install oogy-cutscene
 ```
 
