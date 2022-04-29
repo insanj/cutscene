@@ -7,9 +7,16 @@
 export module OogyCutscene {
 
   /**
-   * The public API
+   * The public API, implemented by the OogyCutscenePerformer (near bottom of module).
+   * @see OogyCutscenePerformer
    */
   export interface OogyCutsceneAPI {
+
+    /**
+     * Holds all tasks that are currently performing or are enqueued for performance (such as with `batch()`).
+     * Beware when mutating; only delete or change elements when certain the cutscene is complete.
+     */
+    activeTasks: OogyCutsceneTask[];
 
     /**
      * Basic method to make text display in an element currently in the DOM.
@@ -25,6 +32,18 @@ export module OogyCutscene {
      * @see perform
      */
     batch(tasks: OogyCutsceneTask[]): Promise<void>;
+
+    /**
+     * Pause any currently active tasks; those that are performing either on their own or as a part of a batch.
+     * @see unpause
+     */
+    pause(): void;
+
+    /**
+     * Unpause the current task, if we are currently paused.
+     * @see pause
+     */
+    unpause(): void;
 
   }
 
@@ -100,5 +119,29 @@ export module OogyCutscene {
     durationPerLetter: 50,
     animationKind: OogyCutsceneTaskAnimationKind.none
   };
+
+  /**
+   * Full implementation of the cutscene API; the core logic and runtime for the module.
+   */
+  export class OogyCutscenePerformer implements OogyCutsceneAPI {
+
+    activeTasks: OogyCutsceneTask[] = [];
+
+    async perform(task: OogyCutsceneTask): Promise<void> {
+
+    }
+    
+    batch(tasks: OogyCutsceneTask[]): Promise<void> {
+      throw new Error("Method not implemented.");
+    }
+
+    pause(): void {
+      throw new Error("Method not implemented.");
+    }
+    unpause(): void {
+      throw new Error("Method not implemented.");
+    }
+
+  }
 
 }

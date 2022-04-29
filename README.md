@@ -3,20 +3,59 @@
 
 🎥 lightweight text handling for the browser, powers cutscenes with dialogue for [https://oogycanyouhelp.com](https://oogycanyouhelp.com)
 
+
 ## Install
 
 Built with Typescript, compiled for use in any modern browser through the `OogyCutscene.min.js` file.
 
-Once in 1.0.0, will be found at:
+```html
+<script defer src="../dist/OogyCutscene.min.js"></script>
+```
+
+
+For development or Node.js use:
 
 ```bash
 npm install oogy-cutscene
 ```
 
+
 ## Usage
 
+See [example/](example/) as well as the `package.json` command `npm run example`.
 
-### TODO
+```html
+<script type="module">
+  import { 
+    OogyCutscenePerformer,
+    OogyCutsceneTask
+  } from "../dist/OogyCutscene.min.js";
+
+  const element = document.getElementById("dialogue");
+  const text = "Hello, Github! This is oogy-cutscene, a simple but powerful tool for web-based video games.";
+  
+  const task = {
+    element,
+    text
+  }; // OogyCutsceneTask
+
+  const performer = new OogyCutscenePerformer();
+
+  console.log("oogy-cutscene example is starting its performance", task, performer);
+  performer.perform(performer)
+    .then(() => {
+      console.log("oogy-cutscene example has finished its performance", performer);
+    })
+    .catch(e => {
+      console.error(e);
+    });
+</script>
+```
+
+## Development
+
+It can be helpful to make sure your IDE is using the same Typescript version as `package.json`. For example, in Visual Studio Code, open a `.ts` file and use the shortcut SHIFT+COMMAND+P and choose `TypeScript: > Select TypeScript Version...`.
+
 
 ## Author
 
@@ -26,6 +65,7 @@ cutscene@oogycanyouhelp.com
 github.com/insanj
 (c) 2022
 ```
+
 
 ## License
 
