@@ -15,26 +15,24 @@
       </div>
     </div>
     
-    <script defer src="../dist/OogyCutscene.min.js"></script>
     <script type="module">
-      
+
       import { 
-        OogyCutscenePerformer,
-        OogyCutsceneTask
-      } from "../dist/OogyCutscene.min.js";
+        OogyCutscene
+      } from "/dist/OogyCutscene.min.js";
 
       const element = document.getElementById("dialogue");
-      const text = "Hello, Github! This is oogy-cutscene, a simple but powerful tool for web-based video games.";
+      const text = "Hello, Github!\nThis is oogy-cutscene, a simple but powerful tool for web-based video games.";
       
       const task = {
         element,
         text
       }; // OogyCutsceneTask
 
-      const performer = new OogyCutscenePerformer();
+      const performer = new OogyCutscene.OogyCutscenePerformer();
 
       console.log("oogy-cutscene example is starting its performance", task, performer);
-      performer.perform(performer)
+      performer.perform(task)
         .then(() => {
           console.log("oogy-cutscene example has finished its performance", performer);
         })

@@ -3,15 +3,21 @@
 
 🎥 lightweight text handling for the browser, powers cutscenes with dialogue for [https://oogycanyouhelp.com](https://oogycanyouhelp.com)
 
+![](example/example.gif)
 
 ## Install
 
 Built with Typescript, compiled for use in any modern browser through the `OogyCutscene.min.js` file.
 
-```html
-<script defer src="../dist/OogyCutscene.min.js"></script>
+```js
+import { 
+  OogyCutscenePerformer
+} from "OogyCutscene.min.js";
 ```
 
+```html
+<script src="OogyCutscene.min.js"></script>
+```
 
 For development or Node.js use:
 
