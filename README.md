@@ -5,7 +5,7 @@
 
 ## Install
 
-Built with Typescript, compiled for use in any modern browser through the `oogy_cutscene_bundle.js` file.
+Built with Typescript, compiled for use in any modern browser through the `OogyCutscene.min.js` file.
 
 Once in 1.0.0, will be found at:
 
@@ -14,6 +14,7 @@ npm install oogy-cutscene
 ```
 
 ## Usage
+
 
 ### TODO
 

@@ -4,7 +4,9 @@
   "description": "lightweight text handling for the browser, powers cutscenes with dialogue for https://oogycanyouhelp.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc",
+    "release": "cat dist/OogyCutscene.js | tr -s '[:blank:]' | tr -d '\n' > dist/OogyCutscene.min.js",
+    "example": "npm start; npm run release; echo '-> oogy-cutscene example booting at localhost:4000/example/'; python3 -m http.server 4000"  
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/insanj/cutscene/issues"
   },
-  "homepage": "https://github.com/insanj/cutscene#readme"
+  "homepage": "https://github.com/insanj/cutscene#readme",
+  "devDependencies": {
+    "typescript": "^4.7.0-dev.20220401"
+  },
+  "files": [
+    "dist/",
+    "src/"
+  ]
 }

@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "target": "es2019",
+    "declaration": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "stripInternal": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "outDir": "dist/",
+    "declarationDir": "dist/"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/"]
+}

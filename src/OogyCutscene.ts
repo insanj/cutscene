@@ -88,7 +88,6 @@ export module OogyCutscene {
   export enum OogyCutsceneTaskAnimationKind {
     none = 'none',
     fadeIn = 'fadeIn',
-    fadeInTop = 'fadeInTop'
   }
 
   /**
@@ -98,8 +97,8 @@ export module OogyCutscene {
    */
   export const kOogyCutsceneTaskOptionsDefault: OogyCutsceneTaskOptions = {
     shouldClearExistingText: true,
-    durationPerLetter: 100,
-    animationKind: OogyCutsceneTaskAnimationKind.fadeInTop
+    durationPerLetter: 50,
+    animationKind: OogyCutsceneTaskAnimationKind.none
   };
 
 }
