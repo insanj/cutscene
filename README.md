@@ -10,9 +10,7 @@
 Built with Typescript, compiled for use in any modern browser through the `OogyCutscene.min.js` file.
 
 ```js
-import { 
-  OogyCutscenePerformer
-} from "OogyCutscene.min.js";
+import { OogyCutscene } from "OogyCutscene.min.js";
 ```
 
 ```html
@@ -33,8 +31,7 @@ See [example/](example/) as well as the `package.json` command `npm run example`
 ```html
 <script type="module">
   import { 
-    OogyCutscenePerformer,
-    OogyCutsceneTask
+    OogyCutscene
   } from "../dist/OogyCutscene.min.js";
 
   const element = document.getElementById("dialogue");
@@ -45,7 +42,7 @@ See [example/](example/) as well as the `package.json` command `npm run example`
     text
   }; // OogyCutsceneTask
 
-  const performer = new OogyCutscenePerformer();
+  const performer = new OogyCutscene.OogyCutscenePerformer();
 
   console.log("oogy-cutscene example is starting its performance", task, performer);
   performer.perform(performer)
