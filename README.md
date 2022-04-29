@@ -26,13 +26,15 @@ npm install oogy-cutscene
 
 ## Usage
 
-See [example/](example/) as well as the `package.json` command `npm run example`.
+To learn how to use this module, check out [OogyCutscene.ts](src/OogyCutscene.ts), which is full of documentation and comments about how to use the API and what its full capabilities are.
+
+See [example/](example/) as well as the `package.json` command `npm run example` for a demo of it in action. Below, a snippet of the example's [index.html](example/index.html):
 
 ```html
 <script type="module">
   import { 
     OogyCutscene
-  } from "../dist/OogyCutscene.min.js";
+  } from "/dist/OogyCutscene.min.js";
 
   const element = document.getElementById("dialogue");
   const text = "Hello, Github! This is oogy-cutscene, a simple but powerful tool for web-based video games.";
@@ -40,7 +42,7 @@ See [example/](example/) as well as the `package.json` command `npm run example`
   const task = {
     element,
     text
-  }; // OogyCutsceneTask
+  }; // this is a OogyCutsceneTask, but used in a pure JS context
 
   const performer = new OogyCutscene.OogyCutscenePerformer();
 
@@ -56,6 +58,8 @@ See [example/](example/) as well as the `package.json` command `npm run example`
 ```
 
 ## Development
+
+To begin development on this module, clone the repo and run `npm install` to grab all the needed development dependencies. Then, use `npm start` to turn the `src/*.ts` -> `dist/*.js`, then use `npm run release` to turn the `.js` to `.min.js`. See `package.json` to learn how these scripts work.
 
 It can be helpful to make sure your IDE is using the same Typescript version as `package.json`. For example, in Visual Studio Code, open a `.ts` file and use the shortcut SHIFT+COMMAND+P and choose `TypeScript: > Select TypeScript Version...`.
 
