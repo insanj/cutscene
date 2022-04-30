@@ -1,7 +1,7 @@
 {
   "name": "oogy-cutscene",
   "version": "0.1.2",
-  "description": "powers cutscenes with dialogue, lightweight text handling in the browser for https://oogycanyouhelp.com",
+  "description": "🎥  powers cutscenes with dialogue, lightweight text handling in the browser for https://oogycanyouhelp.com",
   "type": "module",
   "main": "dist/OogyCutscene.js",
   "scripts": {
