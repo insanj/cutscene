@@ -8,8 +8,11 @@ export var OogyCutscene;
     OogyCutscene.kOogyCutsceneTaskOptionsDefault = {
         shouldClearExistingText: true,
         durationPerLetter: 50,
-        waitAfterLetter: 50,
-        animationKind: OogyCutsceneTaskAnimationKind.none
+        waitAfterLetter: 25,
+        animationKind: OogyCutsceneTaskAnimationKind.none,
+        blockingCompletionAction: async () => {
+            await new Promise((resolve, reject) => setTimeout(resolve, 200));
+        }
     };
     class OogyCutscenePerformer {
         constructor() {
@@ -40,7 +43,7 @@ export var OogyCutscene;
         }
         async performEnqueuedTask(task, uuid) {
             const element = task.element;
-            const options = task.options ? task.options : OogyCutscene.kOogyCutsceneTaskOptionsDefault;
+            const options = task.options !== undefined ? task.options : OogyCutscene.kOogyCutsceneTaskOptionsDefault;
             if (options.shouldClearExistingText === true) {
                 element.textContent = '';
             }
@@ -70,6 +73,9 @@ export var OogyCutscene;
                         await this.wait(letterAnimWaitAfter);
                     }
                 }
+            }
+            if (options.blockingCompletionAction !== undefined) {
+                await options.blockingCompletionAction();
             }
             this._activeTasks.delete(uuid);
             if (this._activeTasks.size > 0) {

@@ -49,7 +49,9 @@ See [example/](example/) as well as the `package.json` command `npm run example`
   const performer = new OogyCutscene.OogyCutscenePerformer();
 
   console.log("oogy-cutscene example is starting its performance", task, performer);
-  performer.perform(performer)
+
+  // we can also add as many tasks as we want using batch(), or calling perform more than once
+  performer.perform(task)
     .then(() => {
       console.log("oogy-cutscene example has finished its performance", performer);
     })

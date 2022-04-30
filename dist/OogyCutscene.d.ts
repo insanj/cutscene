@@ -1,6 +1,6 @@
 export declare module OogyCutscene {
     interface OogyCutsceneAPI {
-        activeTasks: OogyCutsceneTask[];
+        readonly activeTasks: OogyCutsceneTask[];
         perform(task?: OogyCutsceneTask): Promise<void>;
         batch(tasks?: OogyCutsceneTask[]): Promise<void>;
         pause(): void;
@@ -16,6 +16,7 @@ export declare module OogyCutscene {
         durationPerLetter: number;
         waitAfterLetter: number;
         animationKind: OogyCutsceneTaskAnimationKind;
+        blockingCompletionAction?: () => Promise<void>;
     };
     enum OogyCutsceneTaskAnimationKind {
         none = "none",

@@ -14,9 +14,9 @@ export module OogyCutscene {
 
     /**
      * Holds all tasks that are currently performing or are enqueued for performance (such as with `batch()`).
-     * Beware when mutating; only delete or change elements when certain the cutscene is complete.
+     * Mutation unavailable. If active tasks are invalid, use other API methods.
      */
-    activeTasks: OogyCutsceneTask[];
+    readonly activeTasks: OogyCutsceneTask[];
 
     /**
      * Basic method to make text display in an element currently in the DOM.
@@ -113,6 +113,11 @@ export module OogyCutscene {
      */
     animationKind: OogyCutsceneTaskAnimationKind;
 
+    /**
+     * Optional async completion block that will halt the current performance until it resolves.
+     */
+    blockingCompletionAction?: () => Promise<void>;
+
   }
 
   /**
@@ -132,8 +137,11 @@ export module OogyCutscene {
   export const kOogyCutsceneTaskOptionsDefault: OogyCutsceneTaskOptions = {
     shouldClearExistingText: true,
     durationPerLetter: 50,
-    waitAfterLetter: 50,
-    animationKind: OogyCutsceneTaskAnimationKind.none
+    waitAfterLetter: 25,
+    animationKind: OogyCutsceneTaskAnimationKind.none,
+    blockingCompletionAction: async () => {
+      await new Promise((resolve, reject) => setTimeout(resolve, 200));
+    }
   };
 
   /**
@@ -213,7 +221,7 @@ export module OogyCutscene {
       const element = task.element;
 
       // step 1: process options, and determine if we should clear the element
-      const options = task.options ? task.options : kOogyCutsceneTaskOptionsDefault;
+      const options = task.options !== undefined ? task.options : kOogyCutsceneTaskOptionsDefault;
       if (options.shouldClearExistingText === true) {
         // -> clear existing element textContent
         element.textContent = '';
@@ -254,6 +262,11 @@ export module OogyCutscene {
           }
         }
       } // end if task.text !== undefined
+
+      // before finishing, check if the optional blockingCompletionAction exists
+      if (options.blockingCompletionAction !== undefined) {
+        await options.blockingCompletionAction();
+      }
 
       // step 3: when complete, resolve and remove from queue, trigger next to play if exists
       this._activeTasks.delete(uuid);
