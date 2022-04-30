@@ -7,19 +7,29 @@
   </head>
 
   <body>
-
+  
     <div id="container">
+      <div id="entry">
+        <form id="form" onsubmit="handleDialogueTextSubmit()">
+          <input id="input" type="text" placeholder="Type new dialogue text here, then press enter"  />
+        </form>
+      </div>
       <div id="box">
         <div id="dialogue">
         </div>
       </div>
     </div>
-    
+
     <script type="module">
 
       import { 
         OogyCutscene
       } from "/dist/OogyCutscene.min.js";
+
+      /**
+       * Part One:
+       * Default runtime with example text
+       */
 
       const element = document.getElementById("dialogue");
       const text = "Hello, Github!\nThis is oogy-cutscene, a simple but powerful tool for web-based video games.";
@@ -40,7 +50,40 @@
           console.error(e);
         });
       
+
+      /**
+       * Part Two:
+       * JS Form handling for dynamic text with user input
+       */
+
+      const form = document.getElementById("form");
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const input = document.getElementById("input");
+        const value = input.value; // get text from entry input field, process w performer
+
+        const formTask = {
+          element,
+          text: value
+        };
+
+        console.log("oogy-cutscene example is starting a custom performance", formTask, performer);
+        performer.perform(formTask)
+          .then(() => {
+            console.log("oogy-cutscene example has finished a custom performance", performer);
+          })
+          .catch(e => {
+            console.error(e);
+          });
+
+        input.value = ''; // clear for more entry later
+
+      });
+
     </script>
+
   </body>
 
 </html>
