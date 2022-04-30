@@ -114,6 +114,11 @@ export module OogyCutscene {
     animationKind: OogyCutsceneTaskAnimationKind;
 
     /**
+     * Optional async prepare block that will run before the performance starts.
+     */
+    blockingPrepareAction?: () => Promise<void>;
+
+    /**
      * Optional async completion block that will halt the current performance until it resolves.
      */
     blockingCompletionAction?: () => Promise<void>;
@@ -222,6 +227,11 @@ export module OogyCutscene {
 
       // step 1: process options, and determine if we should clear the element
       const options = task.options !== undefined ? task.options : kOogyCutsceneTaskOptionsDefault;
+
+      if (options.blockingPrepareAction !== undefined) {
+        await options.blockingPrepareAction();
+      }
+
       if (options.shouldClearExistingText === true) {
         // -> clear existing element textContent
         element.textContent = '';
