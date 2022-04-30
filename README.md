@@ -3,6 +3,8 @@
 
 🎥 lightweight text handling for the browser, powers cutscenes with dialogue for [https://oogycanyouhelp.com](https://oogycanyouhelp.com)
 
+#### [Try the live example here on Github Pages! https://insanj.github.io/cutscene/example/](https://insanj.github.io/cutscene/example/)
+
 ![](example/example.gif)
 
 ## Install

@@ -34,7 +34,6 @@ export var OogyCutscene;
             const uuid = this.generateUUID();
             this._activeTasks.set(uuid, task);
             if (this._activeTasks.size > 1) {
-                await this.perform();
                 return;
             }
             await this.performEnqueuedTask(task, uuid);

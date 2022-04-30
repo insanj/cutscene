@@ -192,8 +192,8 @@ export module OogyCutscene {
       this._activeTasks.set(uuid, task);
 
       if (this._activeTasks.size > 1) {
-        // there are active tasks, so enqueue this one and start from top
-        await this.perform();
+        // there are active tasks, which means we should ALREADY be performing
+        // or are paused, in which case, this method should do nothing
         return;
       }
 
