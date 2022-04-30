@@ -1,8 +1,9 @@
 {
   "name": "oogy-cutscene",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "lightweight text handling for the browser, powers cutscenes with dialogue for https://oogycanyouhelp.com",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/OogyCutscene.js",
   "scripts": {
     "start": "tsc",
     "release": "cat dist/OogyCutscene.js | tr -s '[:blank:]' | tr -d '\n' > dist/OogyCutscene.min.js",
@@ -12,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/insanj/cutscene.git"
   },
-  "author": "Julian Weiss <@insanj>",
+  "author": "insanj",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/insanj/cutscene/issues"
